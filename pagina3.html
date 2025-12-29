@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    :root {
+        --fundo-principal: #f5f5f5;
+        --texto-principal: #222222;
+        --texto-inverso: #ffffff;
+        --destaque: #847266;
+        --destaque-inverso: #a79f98;
+        --fundo-card: #ffffff;
+    }
+
+
+    nav {
+        background-color: var(--destaque);
+        color: var(--texto);
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: sticky;
+        top: 0px;
+        z-index: 10;
+    }
+
+    body {
+        background-color: #ffffff;
+        font-family: 'Times New Roman', Times, sans-serif;
+        overflow-x: hidden;
+    }
+
+    header {
+        background-color: #6d524d;
+        text-align: center;
+        padding: 40px;
+        color: white;
+        border-top-left-radius: 20px;
+        font-family: "Pacifico", cursive;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+
+    header p {
+        padding: 3px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    nav#menu ul {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #menu a {
+        text-decoration: none;
+        color: var(--texto-inverso);
+        font-weight: 600;
+        padding: 12px 15px;
+        border-radius: 5px 10px;
+        transition: background-color 0.5ms, color 0, 5ms;
+
+    }
+
+    nav#menu a:hover {
+        background-color: var(--destaque-inverso);
+        color: var(--destaque);
+    }
+
+    section {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+        line-height: 1.8;
+    }
+
+    #origens {
+        text-align: justify;
+        font-size: 16px;
+    }
+
+    h2 {
+        color: #847266;
+    }
+
+    .timeline {
+        background-color: #f1f1f1;
+        border-left: 5px solid #847266;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: justify;
+        font-size: 16px;
+    }
+
+    #moderna {
+        text-align: justify;
+        font-size: 16px;
+    }
+
+    .evento {
+        margin-bottom: 20px;
+    }
+
+    .evento h3 {
+        margin: 0;
+        color: #776f67;
+    }
+
+
+
+    #curiosidadeBtn {
+        display: block;
+        margin: 30px auto;
+        margin-bottom: 60px;
+        background-color: var(--destaque);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    #curiosidadeBtn:hover {
+        background-color: var(--destaque-inverso);
+        color: var(--destaque);
+        transform: translateY(-5px);
+    }
+
+    #curiosidade {
+        text-align: center;
+        font-style: italic;
+        margin-top: 20px;
+        margin-bottom: 90px;
+    }
+
+
+    .cards-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card h3 {
+        margin: 12px 0;
+        color: var(--destaque);
+    }
+
+    .card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+    }
+
+
+
+    .footer {
+        background: #f5f5f7;
+        color: #333;
+        padding: 50px 20px 10px;
+        border-top: 1px solid #ddd;
+        font-family: "Arial", sans-serif;
+    }
+
+
+    .footer-content {
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 260px;
+    }
+
+    .footer-section h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+        color: #444;
+        font-weight: 600;
+        border-left: 4px solid #6e8efb;
+        padding-left: 10px;
+    }
+
+    .footer-section p {
+        line-height: 1.6;
+        font-size: 16px;
+        color: #555;
+    }
+
+
+    .social-links a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 8px 0;
+        text-decoration: none;
+        color: #555;
+        font-size: 16px;
+        transition: 0.3s ease;
+    }
+
+    .social-links a img {
+        width: 22px;
+        height: 22px;
+        filter: grayscale(100%);
+        transition: 0.3s;
+    }
+
+    .social-links a:hover {
+        color: #6e8efb;
+        transform: translateX(5px);
+    }
+
+    .social-links a:hover img {
+        filter: brightness(1) saturate(2);
+    }
+
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 35px;
+        padding: 15px 0;
+        color: #666;
+        font-size: 15px;
+        border-top: 1px solid #ddd;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>História da Gastronomia Nacional</h1>
+        <p>Uma viagem pelos sabores e tradições de Moçambique</p>
+    </header>
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html" target="self">Home</a></li>
+            <li><a href="pagina2.html" target="self">Pratos Típicos</a>
+            <li>
+            <li><a href="pagina3.html" target="self">História</a></li>
+            <li><a href="pagina4.html" target="self">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="origens">
+        <h2>Raízes e Origens</h2>
+        <p>
+            A gastronomia moçambicana nasce da ligação profunda entre o povo e a natureza. Ingredientes como mandioca,
+            milho, feijão, amendoim, peixes e frutos do mar sempre fizeram parte da nossa alimentação, refletindo a
+            diversidade de cada região e o aproveitamento inteligente dos recursos locais.
+        </p>
+
+        <p>
+            Cozinhar em Moçambique é, há séculos, mais do que preparar comida: é partilhar histórias, ensinar receitas
+            às novas gerações e fortalecer laços entre famílias e comunidades. Nas zonas costeiras, peixes frescos e
+            mariscos temperados com piri-piri e coco dominam as mesas; no interior, a mandioca, o feijão e as folhas
+            locais assumem um papel central, mostrando como cada lugar criou sabores próprios a partir do que tinha à
+            mão.
+        </p>
+
+        <p>
+            Ao longo da história, a culinária moçambicana recebeu influências externas-dos comerciantes árabes e dos
+            colonizadores portugueses-que trouxeram novos temperos, técnicas e ingredientes. Mas mesmo com essas
+            contribuições, a cozinha local manteve sua identidade, adaptando o novo sem perder a essência do que já
+            existia. É essa mistura equilibrada que dá aos pratos moçambicanos o seu carácter único e memorável.
+        </p>
+
+        <p>
+            Cada refeição é uma pequena viagem no tempo. Provar matapa, caril de amendoim ou frango à zambeziana é
+            sentir a história de comunidades inteiras, a criatividade de quem soube transformar ingredientes simples em
+            algo saboroso e significativo. A gastronomia de Moçambique não é apenas alimento: é memória viva, tradição,
+            cultura e uma forma de expressar a nossa ligação com a terra, com o mar e com as nossas raízes.
+        </p>
+
+    </section>
+    <section class="cards-container">
+        <div class="card">
+            <img src="imagens/peixe.jpg" alt="peixe frito">
+            <h3>Peixe frito</h3>
+        </div>
+        <div class="card">
+            <img src="imagens/carne23.webp" alt="carne de vaca">
+            <h3>Carne de vaca</h3>
+        </div>
+        <div class="card">
+            <img src="imagens/Caril-de-Amendoim.jpg" alt="frango de amendoim">
+            <h3>Frango de amendoim</h3>
+        </div>
+    </section>
+    </section>
+    <section id="colonial" class="timeline">
+        <h2>Influências Históricas</h2>
+
+        <div class="evento">
+            <h3>Períodos de Contacto e Comércio</h3>
+            <p>
+                A culinária moçambicana sempre foi marcada pelo contacto com diferentes culturas. Antes mesmo da
+                colonização europeia, comerciantes árabes visitavam a costa, trazendo especiarias exóticas, coco e novas
+                formas de preparar alimentos. Esse intercâmbio já começava a moldar os sabores locais e a enriquecer as
+                tradições culinárias de várias comunidades costeiras.
+            </p>
+        </div>
+
+        <div class="evento">
+            <h3>Colonização Portuguesa</h3>
+            <p>
+                Com a chegada dos portugueses no século XVI, a gastronomia moçambicana ganhou novos ingredientes e
+                técnicas: arroz, pão, vinho, azeite e formas de cozimento no forno foram incorporados às práticas
+                locais. Apesar dessas influências externas, os moçambicanos adaptaram os ingredientes à sua realidade,
+                combinando-os com produtos autóctones como mandioca, amendoim, peixe e folhas locais. Essa fusão criou
+                pratos únicos que ainda hoje são símbolos da nossa identidade culinária.
+            </p>
+        </div>
+
+        <div class="evento">
+            <h3>Consolidação das Receitas Tradicionais</h3>
+            <p>
+                Ao longo dos séculos XIX e XX, essas influências foram sendo assimiladas de forma natural, sem apagar a
+                originalidade da cozinha local. Pratos como o matapa, a caldeirada de peixe, o caril de amendoim e o
+                frango à zambeziana surgiram dessa combinação equilibrada entre tradição, criatividade e novas ideias
+                trazidas de fora. Cada receita reflete a história de adaptação, resistência e inventividade do povo
+                moçambicano.
+            </p>
+        </div>
+
+        <div class="evento">
+            <h3>O Legado Cultural</h3>
+            <p>
+                Mais do que simplesmente receitas, essas influências históricas mostram como a culinária se tornou um
+                verdadeiro património cultural. Ao provar cada prato, estamos a sentir o cruzamento de culturas, o
+                contacto entre povos e a forma como a gastronomia pode contar histórias de séculos passados, preservando
+                memórias e reforçando a nossa identidade.
+            </p>
+        </div>
+    </section>
+
+    <section id="moderna">
+        <h2>Gastronomia Contemporânea</h2>
+        <p>
+            Hoje, a gastronomia moçambicana vive um momento de transformação e criatividade. Chefs locais e cozinheiros
+            de diferentes regiões não apenas preservam as tradições, mas também reinventam pratos clássicos,
+            experimentando novas combinações de sabores, apresentações mais modernas e técnicas contemporâneas. É
+            fascinante perceber como o simples caril de amendoim ou a caldeirada de peixe podem ganhar novos ares sem
+            perder a sua essência.
+        </p>
+
+        <p>
+            O país tornou-se cada vez mais reconhecido internacionalmente pelo sabor intenso dos seus pratos, pelo uso
+            de produtos frescos e regionais, e pelo cuidado na apresentação. Restaurantes contemporâneos valorizam
+            ingredientes locais, como o camarão fresco, o polvo, o peixe das nossas costas, frutas tropicais e
+            especiarias tradicionais, criando experiências gastronômicas que encantam tanto o paladar quanto os olhos.
+        </p>
+
+        <p>
+            Além da inovação, a gastronomia contemporânea reflete mudanças sociais e culturais. Há uma valorização
+            crescente do consumo sustentável, do aproveitamento integral dos ingredientes e da promoção da identidade
+            regional. Festivais gastronómicos e eventos culturais tornaram-se espaços para partilhar conhecimentos,
+            receitas e histórias, fortalecendo a relação entre tradição e modernidade.
+        </p>
+
+        <p>
+            O mais interessante é perceber que, mesmo com tanta inovação, a cozinha moçambicana mantém a sua essência:
+            cada prato conta histórias, lembra memórias de família e celebra a diversidade do país. Experimentar a
+            gastronomia contemporânea de Moçambique é, portanto, viajar pelo tempo, sentir a mistura de culturas,
+            perceber a criatividade dos cozinheiros e, acima de tudo, compreender como a tradição pode conviver de forma
+            harmoniosa com a modernidade.
+        </p>
+    </section>
+
+
+    <button id="curiosidadeBtn">Mostrar uma curiosidade</button>
+    <p id="curiosidade"></p>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>
+                    Somos um portal dedicado à gastronomia nacional, trazendo sabores únicos,
+                    tradições culinárias e a verdadeira identidade cultural do nosso país.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">
+                        <img src="imagens/icones/instagram.png" alt="Instagram"> Instagram
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <img src="imagens/icones/facebook.png" alt="Facebook"> Facebook
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <img src="imagens/icones/twitter.png" alt="Twitter"> Twitter
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            © 2025 Desenvolvido por <strong>Ezequiel Mandlate</strong>. Todos os direitos reservados.
+        </div>
+    </footer>
+    <script>
+        const curiosidades = [
+            "O matapa é feito de folhas de mandioca com amendoim e coco, e varia em cada região.",
+            "O piri-piri moçambicano é famoso pelo sabor intenso, usado em frangos e camarões.",
+            "O frango à zambeziana combina ingredientes simples, mas o resultado é extremamente saboroso.",
+            "A zona costeira influencia a gastronomia, tornando peixes e mariscos protagonistas em muitos pratos.",
+            "Sobremesas com frutas tropicais são parte essencial da tradição culinária moçambicana."
+        ];
+
+        const btn = document.getElementById('curiosidadeBtn');
+        const p = document.getElementById('curiosidade');
+
+        btn.addEventListener('click', () => {
+            const aleatoria = curiosidades[Math.floor(Math.random() * curiosidades.length)];
+            p.textContent = aleatoria;
+        });
+    </script>
+    <script>
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.08s linear";
+
+        window.addEventListener("DOMContentLoaded", () => {
+            requestAnimationFrame(() => {
+                document.body.style.opacity = "1";
+            });
+        });
+
+        const links = document.querySelectorAll("a[href]");
+
+        links.forEach(link => {
+            const url = link.getAttribute("href");
+            if (!url || url.startsWith("#") || link.target === "_blank") return;
+
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                document.body.style.opacity = "0";
+
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 85); 
+            });
+        });
+
+    </script>
+</body>
+
+</html>

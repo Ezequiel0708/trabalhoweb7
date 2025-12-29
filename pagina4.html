@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        :root {
+            --fundo-principal: #f5f5f5;
+            --texto-principal: #222222;
+            --texto-inverso: #ffffff;
+            --destaque: #847266;
+            --destaque-inverso: #a79f98;
+            --fundo-card: #ffffff;
+        }
+
+
+        nav {
+            background-color: var(--destaque);
+            color: var(--texto);
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: sticky;
+            top: 0px;
+            z-index: 10;
+        }
+
+        header {
+            background-color: #6d524d;
+            text-align: center;
+            padding: 40px;
+            color: white;
+            border-top-left-radius: 20px;
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+        header p {
+            padding: 3px;
+            text-align: center;
+        }
+
+
+        nav#menu ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: var(--texto-inverso);
+            font-weight: 600;
+            padding: 12px 15px;
+            border-radius: 5px 10px;
+            transition: background-color 0.5ms, color 0, 5ms;
+
+        }
+
+        nav#menu a:hover {
+            background-color: var(--destaque-inverso);
+            color: var(--destaque);
+        }
+
+        body {
+            background-color: white;
+            font-family: 'Times New Roman', Times, sans-serif;
+            overflow-x: hidden;
+        }
+
+
+        nav a:hover {
+            background-color: var(--destaque-inverso);
+            color: var(--destaque);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 55px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        h2 {
+            margin-bottom: 15px;
+            color: var(--destaque);
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: var(--destaque);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: var(--destaque-inverso);
+            color: var(--destaque);
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+
+
+        .intro-msg {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f1f1f1;
+            border-left: 5px solid var(--destaque);
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+
+        }
+
+        .intro-msg h3 {
+            color: var(--destaque);
+            margin-bottom: 10px;
+        }
+
+        .intro-msg p {
+            line-height: 1.6;
+            text-align: justify;
+            color: #444;
+        }
+
+        .intro-msg:hover {
+            transform: translateX(7px);
+        }
+
+        .footer {
+            background: #f5f5f7;
+            /* cor MUITO leve */
+            color: #333;
+            padding: 50px 20px 10px;
+            border-top: 1px solid #ddd;
+            font-family: "Arial", sans-serif;
+        }
+
+
+        .footer-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #444;
+            font-weight: 600;
+            border-left: 4px solid #6e8efb;
+            padding-left: 10px;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #555;
+        }
+
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        .social-links a img {
+            width: 22px;
+            height: 22px;
+            filter: grayscale(100%);
+            transition: 0.3s;
+        }
+
+
+        .social-links a:hover {
+            color: #6e8efb;
+            transform: translateX(5px);
+        }
+
+        .social-links a:hover img {
+            filter: brightness(1) saturate(2);
+        }
+
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 35px;
+            padding: 15px 0;
+            color: #666;
+            font-size: 15px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Contacto</h1>
+        <p>Esses são os nossos contactos</p>
+    </header>
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html" target="self">Home</a></li>
+            <li><a href="pagina2.html" target="self">Pratos Típicos</a>
+            <li>
+            <li><a href="pagina3.html" target="self">História</a></li>
+            <li><a href="pagina4.html" target="self">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Informações de Contacto</h2>
+        <p><img src="imagens/icones/email.png" alt=""><strong>Email:</strong> gastronomia@moz.co.mz</p>
+        <p><img src="imagens/icones/telephone-call (1).png" alt=""><strong>Telefone:</strong> +258 21 30 73 21</p>
+        <p><img src="imagens/icones/location.png" alt=""><strong>Endereço:</strong> Av. 25 de Setembro, 1024 Maputo,
+            Moçambique</p>
+
+        <div class="intro-msg" <h3>Obrigado por nos visitar!</h3>
+            <p>
+                Se você tiver alguma dúvida, sugestão ou feedback sobre a gastronomia nacional,
+                não hesite em entrar em contacto connosco. Estamos sempre disponíveis para ajudar
+                e melhorar a sua experiência. Preencha o formulário abaixo e responderemos assim que possível.
+            </p>
+        </div>
+
+        <h2>Formulário de Contacto</h2>
+        <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!'); this.reset();">
+            <input type="text" placeholder="Seu nome" required>
+            <input type="email" placeholder="Seu email" required>
+            <textarea rows="5" placeholder="Sua mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>
+                    Somos um portal dedicado à gastronomia nacional, trazendo sabores únicos,
+                    tradições culinárias e a verdadeira identidade cultural do nosso país.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" target="blank">
+                        <img src="imagens/icones/instagram.png" alt="Instagram"> Instagram
+                    </a>
+
+                    <a href="#" target="blank">
+                        <img src="imagens/icones/facebook.png" alt="Facebook"> Facebook
+                    </a>
+
+                    <a href="#" target="blank">
+                        <img src="imagens/icones/twitter.png" alt="Twitter"> Twitter
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Desenvolvido por <strong>Ezequiel Mandlate</strong>. Todos os direitos reservados.
+        </div>
+    </footer>
+    <script>
+        
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.08s linear";
+
+        window.addEventListener("DOMContentLoaded", () => {
+            requestAnimationFrame(() => {
+                document.body.style.opacity = "1";
+            });
+        });
+
+        
+        const links = document.querySelectorAll("a[href]");
+
+        links.forEach(link => {
+            const url = link.getAttribute("href");
+
+            
+            if (!url || url.startsWith("#") || link.target === "_blank") return;
+
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                document.body.style.opacity = "0";
+
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 85); 
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratos típicos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        :root {
+            --fundo-principal: #f5f5f5;
+            --texto-principal: #222222;
+            --texto-inverso: #ffffff;
+            --destaque: #847266;
+            --destaque-inverso: #a79f98;
+            --fundo-card: #ffffff;
+        }
+
+        nav {
+            background-color: var(--destaque);
+            color: var(--texto);
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: sticky;
+            top: 0px;
+            z-index: 10;
+        }
+
+        header {
+            background-color: #6d524d;
+            text-align: center;
+            padding: 40px;
+            color: white;
+            border-top-left-radius: 20px;
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-style: normal;
+
+        }
+
+        header p {
+            padding: 3px;
+            font-size: 16px;
+        }
+
+
+        nav#menu ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: var(--texto-inverso);
+            font-weight: 600;
+            padding: 12px 15px;
+            border-radius: 5px 10px;
+            transition: background-color 0.5ms, color 0, 5ms;
+
+        }
+
+        nav#menu a:hover {
+            background-color: var(--destaque-inverso);
+            color: var(--destaque);
+        }
+
+        .conteudo {
+            background-color: #ffffff;
+            width: 80%;
+            text-align: justify;
+            font-size: 16px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.8;
+        }
+
+        .conteudo h2 {
+            color: #847266;
+            font-size: 23px;
+            text-align: left;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, sans-serif;
+            background-color: #ffffff;
+            font-size: 16px;
+            color: black;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .card {
+            display: flex;
+            align-items: flex-start;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 600px;
+            height: 250px;
+        }
+
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .card img {
+            width: 45%;
+            height: 100%;
+            object-fit: cover;
+            border-right: 5px solid #847266;
+        }
+
+        .card-content {
+            padding: 15px;
+            width: 50%;
+            overflow: hidden;
+        }
+
+        .card-content h3 {
+            font-size: 23px;
+            text-align: center;
+            color: #847266;
+            margin-bottom: 1px;
+            margin-top: 2px;
+        }
+
+
+        .card-content p {
+            font-size: 16px;
+            text-align: justify;
+            color: #555;
+            padding: 4px;
+            margin-top: 1px;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+
+
+        .citacao {
+            text-align: center;
+            font-style: italic;
+            color: #847266;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            font-size: 19px;
+            letter-spacing: 0.5px;
+        }
+
+    
+        .footer {
+            background: #f5f5f7;
+            color: #333;
+            padding: 50px 20px 10px;
+            border-top: 1px solid #ddd;
+            font-family: "Arial", sans-serif;
+        }
+
+    
+        .footer-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+    
+        .footer-section {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #444;
+            font-weight: 600;
+            border-left: 4px solid #6e8efb;
+            padding-left: 10px;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #555;
+        }
+
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        .social-links a img {
+            width: 22px;
+            height: 22px;
+            filter: grayscale(100%);
+            transition: 0.3s;
+        }
+
+
+        .social-links a:hover {
+            color: #6e8efb;
+            transform: translateX(5px);
+        }
+
+        .social-links a:hover img {
+            filter: brightness(1) saturate(2);
+        }
+
+    
+        .footer-bottom {
+            text-align: center;
+            margin-top: 35px;
+            padding: 15px 0;
+            color: #666;
+            font-size: 15px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Pratos Típicos</h1>
+        <p>O melhor da comida nacional para degostar</p>
+    </header>
+
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html" target="self">Home</a></li>
+            <li><a href="pagina2.html" target="self">Pratos Típicos</a></li>
+            <li><a href="pagina3.html" target="self">História</a></li>
+            <li><a href="pagiana4.html" target="self">Contacto</a></li>
+        </ul>
+    </nav>
+
+
+    <article class="conteudo">
+        <h2>Sabores Típicos Nacionais</h2>
+        <p>
+            A cozinha moçambicana é marcada por sabores quentes, ingredientes frescos e uma herança cultural que se
+            expressa em cada prato. Das folhas verdes cozidas lentamente aos molhos ricos feitos com amendoim e coco,
+            cada receita conta um pedaço da vida do povo. Preparações como o <strong>frango de amendoim</strong>, a
+            <strong>matapa</strong> e o <strong>caril de cacana</strong> mostram como técnicas tradicionais se mantêm
+            vivas, sempre ligadas ao campo e ao mar.
+            Pratos como o <strong>frango à zambeziana</strong>, o <strong>guisado de vaca</strong> ou a clássica
+            <strong>feijoada</strong> revelam um lado caseiro e acolhedor, enquanto especialidades como
+            <strong>peixe-serra</strong>, <strong>carne de porco</strong>, <strong>couve de amendoim</strong> e
+            <strong>lulas</strong> completam este conjunto, trazendo o equilíbrio entre tradição, simplicidade e sabor.
+            Assim, cada refeição é mais do que alimento: é memória, identidade e um convite a conhecer o país através da
+            sua mesa.
+        </p>
+    </article>
+
+
+    <div class="rover">
+        <section>
+            <article class="container">
+                <div class="card">
+                    <img src="imagens/121162530_1203187416725568_6972182911998157843_n.jpg" alt="">
+                    <div class="card-content">
+                        <h3>Frango de Amendoim</h3>
+                        <p>
+                            O caril de amendoim moçambicano é um dos clássicos da culinária nacional e junto com frango
+                            suculenta com um molho cremoso feito à base de amendoim torrado, cebola, alho e tomate.
+                            concentrando os aromas e deixando o prato rico, mas sem se tornar pesado é servido com arroz
+                            ou xima.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/matapa-mozambique-1024x683.webp" alt="">
+                    <div class="card-content">
+                        <h3>Matapa</h3>
+                        <p>
+                            A Matapa é praticamente um símbolo da gastronomia moçambicana: feita com folhas jovens de
+                            mandioca, moídas ou bem picadas, misturadas com amendoim e leite de coco. Muitas
+                            vezes leva camarão, cebola, tomate e alho para dar sabor. O
+                            resultado é um guisado verde escuro, e serve-se com arroz branco ou xima.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/cacana12.webp" alt="">
+                    <div class="card-content">
+                        <h3>Caril de Cacana</h3>
+                        <p>
+                            O caril de cacana combina folhas da planta cacana, levemente amargas, com amendoim pilado,
+                            leite de coco e tomate,. As folhas são lavadas, cozidas em leite de coco e amendoim, e
+                            temperadas com alho e cebola. br É servido muitas vezes com arroz ou xima como
+                            acompanhamento.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/54321.jpg" alt="">
+                    <div class="card-content">
+                        <h3>Couve de Amendoim</h3>
+                        <p>
+                            Couve de amendoim, as folhas são refogadas até ficarem tenras e depois
+                            misturadas com de amendoim moído, água e leite de coco. O resultado é uma
+                            preparação cremosa e saborosa, onde a couve ganha leveza e riqueza ao mesmo tempo. É ideal
+                            com arroz, xima.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/4321.webp" alt="">
+                    <div class="card-content">
+                        <h3>Feijoada Moçambicana</h3>
+                        <p>
+                            A feijoada moçambicana mistura feijão com pedaços de carne suína, temperos simples,
+                            resultando num guisado robusto e bem saboroso. bem como ingredientes locais é cozida
+                            lentamente
+                            para que os sabores se fundam bem. É um prato ideal para almoços em família.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/foto03.jpg" alt="">
+                    <div class="card-content">
+                        <h3>Frango à zambeziano</h3>
+                        <p>
+                            O frango à zambeziano é marinado em suco de limão, alho e ervas frescas, ele é cozido
+                            devagar até ficar muito macio. Pode ser servido com arroz, xima e uma acompanhamento extra
+                            que é a salada de alface, é um delicia de se provar sentir o sabor a cada mordida.
+
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/carnedevaca.webp" alt="">
+                    <div class="card-content">
+                        <h3>Guisado de Vaca</h3>
+                        <p>
+                            O guisado é um prato reconfortante: pedaços suculentos de carne bovina
+                            são cozidos por horas numa mistura de tomate, cebola, alho e especiarias suaves. À medida
+                            que cozinha, o molho engrossa e adquire um sabor profundo. é servido com arroz, batatas ou
+                            xima, sendo perfeito para um almoço de domingo.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/porco1.jpg" alt="">
+                    <div class="card-content">
+                        <h3>Carne de Porco</h3>
+                        <p>
+                            A carne de porco é preparada de diversas maneiras pode ser feita assada
+                            quanto estufada. temperamos com alho, cebola e ervas locais, e Quando assada, a
+                            carne ganha uma cor dourada e suculenta e quando estufado, absorve bem os temperos e é
+                            servido com xima ou arroz.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/peixe-serra.jpg" alt="">
+                    <div class="card-content">
+                        <h3>Peixe Serra</h3>
+                        <p>
+                            O peixe serra, bastante apreciado, é normalmente grelhado ou assado. Ele
+                            é temperado com alho, limão e ervas aromáticas, realçando o sabor natural da carne branca e
+                            firme. É um prato simples, elegante e sempre presente nas refeições familiares.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/fot3.JPG" alt="">
+                    <div class="card-content">
+                        <h3>Lulas Grelhadas</h3>
+                        <p>
+                            As lulas são preparadas frescas, grelhadas ou cozidas em molhos leves feitos de tomate,
+                            cebola e ervas. A lula com molho de tomate e um fio de azeite virgem resulta numa textura
+                            macia e num sabor levemente único, delicado mas bem presente.
+                        </p>
+                        </p>
+                    </div>
+                </div>
+            </article>
+            <aside>
+
+                <div class="citacao">
+                    "A comida é a memória do povo, e em cada prato moçambicano encontra-se a história e o sabor da nossa
+                    terra."
+                </div>
+
+            </aside>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>
+                    Somos um portal dedicado à gastronomia nacional, trazendo sabores únicos,
+                    tradições culinárias e a verdadeira identidade cultural do nosso país.
+                </p>
+            </div>
+
+        
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" target="blank">
+                        <img src="imagens/icones/instagram.png" alt="Instagram"> Instagram
+                    </a>
+
+                    <a href="#" target="blank">
+                        <img src="imagens/icones/facebook.png" alt="Facebook"> Facebook
+                    </a>
+
+                    <a href="#" target="blank">
+                        <img src="imagens/icones/twitter.png" alt="Twitter"> Twitter
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    
+        <div class="footer-bottom">
+            © 2025 Desenvolvido por <strong>Ezequiel Mandlate</strong>. Todos os direitos reservados.
+        </div>
+    </footer>
+</body>
+ <script>
+
+document.body.style.opacity = "0";
+document.body.style.transition = "opacity 0.08s linear";
+
+window.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    document.body.style.opacity = "1";
+  });
+});
+
+const links = document.querySelectorAll("a[href]");
+
+links.forEach(link => {
+  const url = link.getAttribute("href");
+
+
+  if (!url || url.startsWith("#") || link.target === "_blank") return;
+
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    document.body.style.opacity = "0";
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 85); 
+  });
+});
+
+ </script>
+</html>
