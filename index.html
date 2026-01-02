@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gastronomia Nacional</title>
   <link rel="stylesheet" href="style.css">
-  
+
 </head>
 
 <body>
@@ -18,7 +18,7 @@
       <li><a href="index.html" target="self">Home</a></li>
       <li><a href="pagina2.html" target="self">Pratos Tipicos</a></li>
       <li><a href="pagina3.html" target="self">História</a></li>
-      <li><a href="pagina4.html" target="self">Contacto</a></li>
+      <li><a href="pagina4.html" target="self">Fale Conoscou</a></li>
     </ul>
   </nav>
   <div class="cards">
@@ -150,35 +150,5 @@
       © 2025 Desenvolvido por <strong>Ezequiel Mandlate</strong>. Todos os direitos reservados.
     </div>
   </footer>
-  <script>
-  
-    document.body.style.opacity = "0";
-    document.body.style.transition = "opacity 0.08s linear";
-
-    window.addEventListener("DOMContentLoaded", () => {
-      requestAnimationFrame(() => {
-        document.body.style.opacity = "1";
-      });
-    });
-
-  
-    const links = document.querySelectorAll("a[href]");
-
-    links.forEach(link => {
-      const url = link.getAttribute("href");
-
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        document.body.style.opacity = "0";
-
-        setTimeout(() => {
-          window.location.href = url;
-        }, 85); 
-      });
-    });
-
-  </script>
 </body>
-
 </html>

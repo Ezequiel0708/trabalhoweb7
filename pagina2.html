@@ -11,7 +11,8 @@
             padding: 0;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+       
+     @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
         :root {
             --fundo-principal: #f5f5f5;
@@ -42,7 +43,7 @@
             padding: 40px;
             color: white;
             border-top-left-radius: 20px;
-            font-family: "Pacifico", cursive;
+            font-family:  "Pacifico", serif;
             font-weight: 400;
             font-style: normal;
 
@@ -473,35 +474,4 @@
         </div>
     </footer>
 </body>
- <script>
-
-document.body.style.opacity = "0";
-document.body.style.transition = "opacity 0.08s linear";
-
-window.addEventListener("DOMContentLoaded", () => {
-  requestAnimationFrame(() => {
-    document.body.style.opacity = "1";
-  });
-});
-
-const links = document.querySelectorAll("a[href]");
-
-links.forEach(link => {
-  const url = link.getAttribute("href");
-
-
-  if (!url || url.startsWith("#") || link.target === "_blank") return;
-
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    document.body.style.opacity = "0";
-
-    setTimeout(() => {
-      window.location.href = url;
-    }, 85); 
-  });
-});
-
- </script>
 </html>
