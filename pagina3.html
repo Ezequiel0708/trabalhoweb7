@@ -49,7 +49,6 @@
         text-align: center;
         padding: 40px;
         color: white;
-        border-top-left-radius: 20px;
         font-family: "Times", "serif";
         font-weight: 400;
         font-style: normal;
@@ -105,7 +104,7 @@
         background-color: #f1f1f1;
         border-left: 5px solid #847266;
         border-radius: 10px;
-        padding: 20px;
+        padding: 30px;
         text-align: justify;
         font-size: 16px;
     }
@@ -117,6 +116,7 @@
 
     .evento {
         margin-bottom: 20px;
+        padding: 10px;
     }
 
     .evento h3 {
@@ -186,8 +186,8 @@
     }
 
     .card:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+        transform: translateY(0px) scale(1.0);
+        box-shadow: 0 5px 2px rgba(0, 0, 0, 0.12);
     }
 
 
@@ -267,20 +267,37 @@
         font-size: 15px;
         border-top: 1px solid #ddd;
     }
+    
+        @media (max-width: 900px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+            header h1 {
+                font-size: 24px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            p {
+                font-size: 15px;
+            }
 </style>
 
 <body>
     <header>
-        <h1>História da Gastronomia Nacional</h1>
+        <h1>História da Gastronomia </h1>
         <p>Uma viagem pelos sabores e tradições de Moçambique</p>
     </header>
     <nav id="menu">
         <ul>
             <li><a href="index.html" target="self">Home</a></li>
-            <li><a href="pagina2.html" target="self">Pratos Típicos</a>
+            <li><a href="pagina2.html" target="self">Pratos</a>
             <li>
             <li><a href="pagina3.html" target="self">História</a></li>
-            <li><a href="pagina4.html" target="self">Fale connosco</a></li>
+            <li><a href="pagina4.html" target="self">Contactos</a></li>
         </ul>
     </nav>
 
